@@ -21,18 +21,12 @@ int quit()
 }
 void show_board(char (* board)[COLS])
 {
-	printf("    1   2   3\n");
-	for (int i = 0; i < ROWS; i++)
-	{
-		printf("%d  ", i + 1);
-		for (int j = 0; j < COLS; j++)
-		{
-			printf(" %c ", board[i][j]);
-			if (j != 2) printf("|");
-		}
-		if (i != 2) printf("\n  -------------\n");
-	}
-	printf("\n");
+	printf("   1   2   3\n");
+	printf("1  %c | %c | %c\n", board[0][0], board[0][1], board[0][2]);
+	printf("  -----------\n");
+	printf("2  %c | %c | %c\n", board[1][0], board[1][1], board[1][2]);
+	printf("  -----------\n");
+	printf("3  %c | %c | %c\n", board[2][0], board[2][1], board[2][2]);
 }
 void place_p(char (* board)[COLS])
 {
@@ -58,12 +52,13 @@ void place_p(char (* board)[COLS])
 int check(char (* board)[COLS])
 {
 	cnt++;
-	if (rowCheck(board)) status = rowCheck(board);
-	else if (colsCheck(board)) status = colsCheck(board);
-	else if (diasCheck(board)) status = diasCheck(board);
+	int result;
+	if (status = rowCheck(board)) result = status;
+	else if (status = colsCheck(board)) result = status;
+	else if (status = diasCheck(board)) result = status;
 	else if (cnt == 9) status = drawCheck(board);
 
-	return status;
+	return result;
 }
 void clean(char (* board)[COLS])
 {
